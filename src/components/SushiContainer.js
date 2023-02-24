@@ -1,11 +1,22 @@
 import React from "react";
 import MoreButton from "./MoreButton";
+import Sushi from "./Sushi";
 
-function SushiContainer(props) {
+function SushiContainer({allSushi, resetLimit, sushiLimit}) {
+
+const displaySushi =
+
+allSushi.map((item) => {
+ return (
+    <Sushi key={item.id} currentSushi={item} />
+ ) 
+})
+
+
   return (
     <div className="belt">
-      {/* Render Sushi components here! */}
-      <MoreButton />
+      {displaySushi}
+      <MoreButton resetLimit={resetLimit} sushiLimit={sushiLimit}/>
     </div>
   );
 }
